@@ -15,7 +15,7 @@
         <color rgba="0 0 1 1"/>
     </material>
 
-    <material name="gray">
+    <material name="grey">
         <color rgba="0.5 0.5 0.5 1"/>
     </material>
 
@@ -82,7 +82,7 @@
         <child link="left_wheel" />
     </joint>
 
-    <!-- Right Wheel -->
+   <!-- Right Wheel -->
    <link name="right_wheel">
         <collision>
             <origin xyz="0 0 0" rpy="-1.57079632 0 0"/>
@@ -133,7 +133,7 @@
             <geometry>
                 <sphere radius="0.025"/>
             </geometry>
-            <material name="gray"/>
+            <material name="grey"/>
         </visual>
     </link>
 
@@ -144,7 +144,7 @@
     </joint>
 
     <!-- Rear caster -->
-   <link name="rear_caster">
+    <link name="rear_caster">
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -163,9 +163,9 @@
             <geometry>
                 <sphere radius="0.025"/>
             </geometry>
-            <material name="gray"/>
+            <material name="grey"/>
         </visual>
-    </link>
+     </link>
 
     <joint name="base_link_rear_caster_joint" type="fixed">
         <origin rpy="0 0 0" xyz="-0.1 0 -0.15" />
@@ -173,7 +173,7 @@
         <child link="rear_caster" />
     </joint>
 
-      <!-- Gazebo tags - Laser scan -->
+    <!-- Gazebo tags - Laser scan -->
     <gazebo reference="joint_front_laser">
       <preserveFixedJoint>true</preserveFixedJoint>
     </gazebo>
@@ -211,37 +211,21 @@
       </collision>
     </link>
 
-    <gazebo reference="front_laser">
-     <sensor type="ray" name="head_hokuyo_sensor">
-        <pose>0 0 0 0 0 0</pose>
-        <visualize>true</visualize>
-        <update_rate>20</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>720</samples>
-                    <resolution>1</resolution>
-                    <min_angle>-1.570796</min_angle>
-                    <max_angle>1.570796</max_angle>
-                </horizontal>
-            </scan>
-            <range>
-                <min>0.10</min>
-                <max>10.0</max>
-                <resolution>0.01</resolution>
-            </range>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.01</stddev>
-            </noise>
-        </ray>
-        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-            <topicName>/laser/scan</topicName>
-            <frameName>sensor_laser</frameName>
-        </plugin>
-     </sensor>
+    <!-- Gazebo color references -->
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
     </gazebo>
-
+    <gazebo reference="front_caster">
+        <material>Gazebo/grey</material>
+    </gazebo>
+    <gazebo reference="rear_caster">
+        <material>Gazebo/grey</material>
+    </gazebo>
+    <gazebo reference="right_wheel">
+        <material>Gazebo/grey</material>
+    </gazebo>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/grey</material>
+    </gazebo>
 
 </robot>
