@@ -9,7 +9,6 @@ This project implements a simulation model of Rb-1 robotnik mobile robot using R
 - [Usage](#usage)
 - [Results](#result)
 - [Contributing](#contributing)
-- [Contact](#contact)
 
 ## Introduction <a name="introduction"></a>
 This project showcases the creation of the URDF file for the Rb-1 robot by defining all the required links and joints and by adding required actuator and sensor plugins. A simple yet efficient rosservice in cpp is created to rotate the robot at given specific angle by the user.
